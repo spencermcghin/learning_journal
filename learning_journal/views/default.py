@@ -65,8 +65,9 @@ try it again.
 
 
 @view_config(route_name='auth', match_param='action=in', renderer='string',
-     request_method='POST')
-def sign_in(request):
+             request_method='POST')
+@view_config(route_name='auth', match_param='action=out', renderer='string')
+def sign_in_out(request):
     login_form = None
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
