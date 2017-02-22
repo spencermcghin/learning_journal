@@ -44,3 +44,4 @@ zope.deprecation==4.2.0
 zope.interface==4.3.3
 zope.sqlalchemy==0.7.7
 psycopg2==2.6.2
+Markdown==2.6.8

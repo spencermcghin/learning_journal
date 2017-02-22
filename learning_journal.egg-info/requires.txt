@@ -8,6 +8,8 @@ zope.sqlalchemy
 waitress
 wtforms
 passlib
+markdown
+pygments
 
 [testing]
 WebTest >= 1.3.1

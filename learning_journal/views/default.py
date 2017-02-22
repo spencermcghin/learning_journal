@@ -17,6 +17,7 @@ from ..models.mymodel import User
 from pyramid.security import authenticated_userid
 
 from jinja2 import Markup
+
 import markdown
 
 

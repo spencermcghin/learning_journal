@@ -4,12 +4,12 @@ README.txt
 development.ini
 production.ini
 pytest.ini
+requirements.txt
 setup.py
 learning_journal/__init__.py
 learning_journal/routes.py
 learning_journal/security.py
 learning_journal/tests.py
-learning_journal/views.py
 learning_journal.egg-info/PKG-INFO
 learning_journal.egg-info/SOURCES.txt
 learning_journal.egg-info/dependency_links.txt
