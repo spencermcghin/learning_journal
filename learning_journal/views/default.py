@@ -16,14 +16,23 @@ from ..models.mymodel import User
 
 from pyramid.security import authenticated_userid
 
+from jinja2 import Markup
+import markdown
+
+
+def render_markdown(content):
+    output = Markup(markdown.markdown(content))
+    return output
+
 
 @view_config(route_name='detail', renderer='templates/detail.jinja2')
 def view(request):
     this_id = request.matchdict.get('id', -1)
     entry = Entry.by_id(this_id)
+    logged_in = authenticated_userid(request)
     if not entry:
         return HTTPNotFound()
-    return {'entry': entry}
+    return {'entry': entry, 'logged_in': logged_in}
 
 
 @view_config(route_name='action', match_param='action=create', renderer='templates/edit.jinja2', permission='create')
