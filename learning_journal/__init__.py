@@ -17,7 +17,7 @@ def main(global_config, **settings):
     secret = os.environ.get('AUTH_SECRET', 'somesecret')
     config = Configurator(
         settings=settings,
-        authentication_policy=AuthTktAuthenticationPolicy('secret'),
+        authentication_policy=AuthTktAuthenticationPolicy(secret),
         authorization_policy=ACLAuthorizationPolicy(),
         default_permission='view'
     )
