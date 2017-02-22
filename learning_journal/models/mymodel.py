@@ -14,20 +14,27 @@ from .meta import Base
 import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base
 
-from sqlalchemy.orm import (
+from sqlalchemy.orm import(
     scoped_session,
-    sessionmaker,
-)
-
-from passlib.context import CryptContext
-password_context = CryptContext(schemes=['pbkdf2_sha512'])
-
+    sessionmaker
+    )
 from zope.sqlalchemy import ZopeTransactionExtension
+from passlib.context import CryptContext
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
+password_context = CryptContext(schemes=['pbkdf2_sha512'])
 
+# this is the class that came with the scaffold, we can remove it
+# class MyModel(Base):
+#     __tablename__ = 'models'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(Text)
+#     value = Column(Integer)
+#
+#
+# Index('my_index', MyModel.name, unique=True, mysql_length=255)
 
-# The entry class will hold the entries of our Learning Journal
+#add entry class - to be used by our learning journal
 class Entry(Base):
     __tablename__ = 'entries'
     id = Column(Integer, primary_key=True)
@@ -52,7 +59,6 @@ class Entry(Base):
         if session is None:
             session = DBSession
         return session.query(cls).get(id)
-
 
 # The User class will allow us to authenticate users
 class User(Base):
