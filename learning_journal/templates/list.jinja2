@@ -3,7 +3,6 @@
 {% if not login_form %}
 <p><a href="{{ request.route_url('action', action='create') }}">New Entry</a></p>
 {% endif %}
-{% endblock %}
 {% if login_form %}
 <aside><form action="{{ request.route_url('auth', action='in') }}" method="POST">
   {% for field in login_form %}
