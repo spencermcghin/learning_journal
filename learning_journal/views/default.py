@@ -21,7 +21,12 @@ import markdown
 
 
 def render_markdown(content):
-    output = Markup(markdown.markdown(content))
+    output = Markup(
+        markdown.markdown(
+            content,
+            extensions=['codehilite(pygments_style=colorful)', 'fenced_code']
+        )
+    )
     return output
 
 

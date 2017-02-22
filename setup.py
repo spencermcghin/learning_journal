@@ -18,8 +18,9 @@ requires = [
     'zope.sqlalchemy',
     'waitress',
     'wtforms',
-    'passlib'
-    'markdown'
+    'passlib',
+    'markdown',
+    'pygments'
     ]
 
 tests_require = [
